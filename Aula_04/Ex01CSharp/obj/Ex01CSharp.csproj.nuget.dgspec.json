@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/2024_2_POO/Aula_04/Ex01CSharp/Ex01CSharp.csproj": {}
+    "C:\\Python\\2024_2_POO\\Aula_04\\Ex01CSharp\\Ex01CSharp.csproj": {}
   },
   "projects": {
-    "/workspaces/2024_2_POO/Aula_04/Ex01CSharp/Ex01CSharp.csproj": {
+    "C:\\Python\\2024_2_POO\\Aula_04\\Ex01CSharp\\Ex01CSharp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/2024_2_POO/Aula_04/Ex01CSharp/Ex01CSharp.csproj",
+        "projectUniqueName": "C:\\Python\\2024_2_POO\\Aula_04\\Ex01CSharp\\Ex01CSharp.csproj",
         "projectName": "Ex01CSharp",
-        "projectPath": "/workspaces/2024_2_POO/Aula_04/Ex01CSharp/Ex01CSharp.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/2024_2_POO/Aula_04/Ex01CSharp/obj/",
+        "projectPath": "C:\\Python\\2024_2_POO\\Aula_04\\Ex01CSharp\\Ex01CSharp.csproj",
+        "packagesPath": "C:\\Users\\gilbe_3wmczkt\\.nuget\\packages\\",
+        "outputPath": "C:\\Python\\2024_2_POO\\Aula_04\\Ex01CSharp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\gilbe_3wmczkt\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -58,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.402/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
