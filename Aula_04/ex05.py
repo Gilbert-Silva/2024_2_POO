@@ -10,3 +10,10 @@ x = Triangulo()  # Triangulo() cria um objeto da classe
 x.b = float(input("Informe o valor da base do triângulo: "))
 x.h = float(input("Inform o valor da altura: "))
 print(f"Área = {x.calc_area()}")
+
+y = Triangulo()
+y.b = 10
+y.h = 20
+print(y.calc_area())   # Triangulo.calc_area(y)
+
+
