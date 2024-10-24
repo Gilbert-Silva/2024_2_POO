@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Ex01CSharp
-build_property.ProjectDir = C:\Python\2024_2_POO\Aula_04\Ex01CSharp\
+build_property.ProjectDir = /workspaces/2024_2_POO/Aula_04/Ex01CSharp/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

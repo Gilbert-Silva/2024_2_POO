@@ -1,11 +1,5 @@
 import java.util.Scanner;
-
-class Triangulo {
-    public double b = 0, h = 0;
-    public double calc_area() {
-        return b * h / 2;
-    }
-}
+import Aula_04.Triangulo;
 
 public class Ex01
 {
