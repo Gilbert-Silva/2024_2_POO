@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import Aula_04.Triangulo;
 
 public class Ex01
 {
@@ -11,7 +10,7 @@ public class Ex01
         x.b = leitor.nextDouble();
         System.out.println("Informe o valor da altura: ");
         x.h = leitor.nextDouble();
-        System.out.println(String.format("Área = %.2f", x.calc_area()));
+        System.out.println(String.format("Area = %.2f", x.calc_area()));
         leitor.close();
     }
 }
