@@ -3,4 +3,7 @@ class Triangulo {
     public double calc_area() {
         return b * h / 2;
     }
+    public String toString() {
+        return String.format("Triângulo, base = %.2f, altura = %.2f", b, h);
+    }
 }

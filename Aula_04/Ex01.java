@@ -11,6 +11,7 @@ public class Ex01
         System.out.println("Informe o valor da altura: ");
         x.h = leitor.nextDouble();
         System.out.println(String.format("Area = %.2f", x.calc_area()));
+        System.out.println(x);
         leitor.close();
     }
 }
