@@ -1,5 +1,11 @@
-javac -cp ".:lib/gson-2.8.9.jar" src/Main.java  # Compilar com o classpath do Gson
-java -cp ".:lib/gson-2.8.9.jar" Main            # Rodar com o classpath do Gson
+Na pasta ProjetoJava
 
-javac UI.java Cliente.java Clientes.java
-java UI
+1. Para compilar os arquivos Java e incluir o gson.jar no classpath
+
+javac -d bin -cp lib/gson-2.11.0.jar src/*.java
+
+2. Para executar o seu programa e garantir que o gson.jar seja incluído no classpath
+
+java -cp bin:lib/gson-2.11.0.jar Ui
+
+

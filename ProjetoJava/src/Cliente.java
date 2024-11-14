@@ -1,5 +1,3 @@
-package ProjetoJava.src;
-
 public class Cliente {
     private int id;
     private String nome;

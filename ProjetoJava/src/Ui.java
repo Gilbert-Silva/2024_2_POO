@@ -1,19 +1,16 @@
-package ProjetoJava.src;
-
 import java.util.List;
 import java.util.Scanner;
 
-public class UI {
+public class Ui {
+    static Scanner scanner = new Scanner(System.in); 
 
     // Método que exibe o menu e retorna a opção escolhida
     public static int menu() {
         System.out.println("Cadastro de Clientes");
         System.out.println(" 1 - Inserir, 2 - Listar, 3 - Atualizar, 4 - Excluir, 9 - Fim");
         System.out.print("Informe uma opção: ");
-        
-        Scanner scanner = new Scanner(System.in);
         int op = scanner.nextInt();
-        scanner.close();
+        scanner.nextLine();
         return op;
     }
 
@@ -47,7 +44,7 @@ public class UI {
 
     // Método para inserir um novo cliente
     public static void inserirCliente() {
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
 
         System.out.print("Informe o nome: ");
         String nome = scanner.nextLine();
@@ -64,7 +61,7 @@ public class UI {
         // Chama a operação de inserir para adicionar o cliente na lista
         Clientes.inserir(cliente);
 
-        scanner.close();
+        //scanner.close();
     }
 
     // Método para listar todos os clientes cadastrados
@@ -84,7 +81,7 @@ public class UI {
     public static void atualizarCliente() {
         listarClientes();
 
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
 
         System.out.print("Informe o id do cliente a ser alterado: ");
         int id = scanner.nextInt();
@@ -105,14 +102,14 @@ public class UI {
         // Chama a operação de atualizar
         Clientes.atualizar(cliente);
 
-        scanner.close();
+        //scanner.close();
     }
 
     // Método para excluir um cliente
     public static void excluirCliente() {
         listarClientes();
 
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
 
         System.out.print("Informe o id do cliente a ser excluído: ");
         int id = scanner.nextInt();
@@ -123,6 +120,6 @@ public class UI {
         // Chama a operação de excluir
         Clientes.excluir(cliente);
 
-        scanner.close();
+        //scanner.close();
     }
 }
