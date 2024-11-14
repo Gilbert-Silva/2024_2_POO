@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Clientes {
-    private static List<Cliente> objetos = new ArrayList<>();
+    private static List<Cliente> objetos = new ArrayList<Cliente>();
 
     // Inserir cliente
     public static void inserir(Cliente obj) {
