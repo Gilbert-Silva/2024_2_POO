@@ -29,7 +29,7 @@ class Produtos:
         # abre a lista do arquivo
         cls.abrir()
         # retorna a lista para a UI
-        return cls.objetos
+        return cls.objetos[:]
     @classmethod
     def listar_id(cls, id):
         cls.abrir()

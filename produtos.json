@@ -1,1 +1,1 @@
-[{"id": 2, "descricao": "Monitor Dell", "preco": 1100.0, "estoque": 15, "id_categoria": 2}, {"id": 1, "descricao": "Mouse Microsoft", "preco": 110.00000000000001, "estoque": 100, "id_categoria": 1}]
+[{"id": 2, "descricao": "Monitor Dell", "preco": 1331.0, "estoque": 15, "id_categoria": 2}, {"id": 1, "descricao": "Mouse Microsoft", "preco": 133.10000000000005, "estoque": 100, "id_categoria": 1}, {"id": 3, "descricao": "Monitor HP", "preco": 1452.0000000000002, "estoque": 10, "id_categoria": 2}]
