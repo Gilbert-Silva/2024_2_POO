@@ -12,7 +12,7 @@ class View:
     def cliente_autenticar(email, senha):
         for c in Clientes.listar():
             if c.email == email and c.senha == senha:
-                return { "cliente_id" : c.id, "cliente_nome" : c.nome }
+                return { "id" : c.id, "nome" : c.nome }
         return None    
 
     @staticmethod

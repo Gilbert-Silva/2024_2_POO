@@ -52,8 +52,8 @@ class UI:
         if obj == None:
             print("E-mail ou senha inválidos")
         else:
-            cls.cliente_id = obj["cliente_id"]
-            cls.cliente_nome = obj["cliente_nome"]
+            cls.cliente_id = obj["id"]
+            cls.cliente_nome = obj["nome"]
             print("Ben-vindo(a),", cls.cliente_nome)                            
         
     @classmethod 
