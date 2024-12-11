@@ -1,6 +1,9 @@
 from views import View
 
 class UI:
+    # dados do usuário logado
+    cliente_id = 0
+    cliente_nome = ""
     @staticmethod
     def menu():
         print("\nCadastro de Clientes")
@@ -9,10 +12,13 @@ class UI:
         print("  5 - Inserir, 6 - Listar, 7 - Atualizar, 8 - Excluir")
         print("\nCadastro de Produtos")
         print("  9 - Inserir, 10 - Listar, 11 - Atualizar, 12 - Excluir, 13 - Reajustar")
+        print("\nMenu do Visitante")
+        print("  14 - Abrir conta, 15 - Entrar no Sistema")
         print("\n99-Fim")
         return int(input("Informe uma opção: "))
     @staticmethod
     def main():
+        View.cliente_admin()
         op = 0
         while op != 99:
             op = UI.menu()
@@ -32,6 +38,24 @@ class UI:
             if op == 12: UI.produto_excluir()
             if op == 13: UI.produto_reajustar()
 
+            if op == 14: UI.visitante_abrir_conta()
+            if op == 15: UI.visitante_entrar_no_sistema()
+
+    @classmethod 
+    def visitante_abrir_conta(cls):
+        cls.cliente_inserir()
+    @classmethod    
+    def visitante_entrar_no_sistema(cls):
+        email = input("Informe o email: ")
+        senha = input("Informe a senha: ")
+        obj = View.cliente_autenticar(email, senha)
+        if obj == None:
+            print("E-mail ou senha inválidos")
+        else:
+            cls.cliente_id = obj["cliente_id"]
+            cls.cliente_nome = obj["cliente_nome"]
+            print("Ben-vindo(a),", cls.cliente_nome)                            
+        
     @classmethod 
     def cliente_inserir(cls):
         # Lê os dados de um cliente
@@ -39,11 +63,12 @@ class UI:
         nome = input("Informe o nome: ")
         email = input("Informe o email: ")
         fone = input("Informe o fone: ")
+        senha = input("Informe a senha: ")
         # instancia a classe Cliente -> objeto Cliente
         # cliente = Cliente(0, nome, email, fone)
         # chama a operação de inserir para adicionar o cliente na lista
         # Clientes.inserir(cliente)
-        View.cliente_inserir(nome, email, fone)
+        View.cliente_inserir(nome, email, fone, senha)
     @classmethod 
     def cliente_listar(cls):
         # recupera e percorre a lista de clientes
@@ -62,11 +87,12 @@ class UI:
         nome = input("Informe o novo nome: ")
         email = input("Informe o novo email: ")
         fone = input("Informe o novo fone: ")
+        senha = input("Informe a senha: ")
         # instancia a classe Cliente -> objeto Cliente
         # cliente = Cliente(id, nome, email, fone)
         # chama a operação de atualizar 
         # Clientes.atualizar(cliente)
-        View.cliente_atualizar(id, nome, email, fone)
+        View.cliente_atualizar(id, nome, email, fone, senha)
     @classmethod 
     def cliente_excluir(cls):
         cls.cliente_listar()

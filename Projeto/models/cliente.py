@@ -1,10 +1,11 @@
 import json
 class Cliente:
-    def __init__(self, id, nome, email, fone):
+    def __init__(self, id, nome, email, fone, senha):
         self.id = id # atributos de instância
         self.nome = nome
         self.email = email
         self.fone = fone
+        self.senha = senha
     def __str__(self):
         return f"{self.id} - {self.nome} - {self.email} - {self.fone}"
 
@@ -70,7 +71,7 @@ class Clientes:
                 # percorre a lista de dicionários
                 for obj in clientes_json:
                     # recupera cada dicionário e cria um objeto
-                    c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"])
+                    c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"], obj["senha"])
                     # insere o objeto na lista
                     cls.objetos.append(c)    
         except FileNotFoundError:

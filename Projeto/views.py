@@ -4,19 +4,31 @@ from models.produto import Produto, Produtos
 
 class View:
     @staticmethod
+    def cliente_admin():
+        for c in Clientes.listar():
+            if c.email == "admin": return None
+        View.cliente_inserir("admin", "admin", "0000", "1234")    
+    @staticmethod
+    def cliente_autenticar(email, senha):
+        for c in Clientes.listar():
+            if c.email == email and c.senha == senha:
+                return { "cliente_id" : c.id, "cliente_nome" : c.nome }
+        return None    
+
+    @staticmethod
     def cliente_listar():
         return Clientes.listar()
     @staticmethod
-    def cliente_inserir(nome, email, fone):
-        c = Cliente(0, nome, email, fone)
+    def cliente_inserir(nome, email, fone, senha):
+        c = Cliente(0, nome, email, fone, senha)
         Clientes.inserir(c)
     @staticmethod
-    def cliente_atualizar(id, nome, email, fone):
-        c = Cliente(id, nome, email, fone)
+    def cliente_atualizar(id, nome, email, fone, senha):
+        c = Cliente(id, nome, email, fone, senha)
         Clientes.atualizar(c)
     @staticmethod
     def cliente_excluir(id):
-        c = Cliente(id, "", "", "")
+        c = Cliente(id, "", "", "", "")
         Clientes.excluir(c)
 
     @staticmethod
