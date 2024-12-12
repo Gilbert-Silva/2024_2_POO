@@ -4,46 +4,77 @@ class UI:
     # dados do usuário logado
     cliente_id = 0
     cliente_nome = ""
+    
     @staticmethod
-    def menu():
-        print("\nCadastro de Clientes")
+    def menu_visitante():
+        print("1 - Abrir conta, 2 - Entrar no Sistema, 99 - Fim")
+        op = int(input("\nInforme uma opção: "))
+        if op == 1: UI.visitante_abrir_conta()
+        if op == 2: UI.visitante_entrar_no_sistema()
+        return op
+
+    @staticmethod
+    def menu_admin():
+        print("Cadastro de Clientes")
         print("  1 - Inserir, 2 - Listar, 3 - Atualizar, 4 - Excluir")
-        print("\nCadastro de Categorias")
+        print("Cadastro de Categorias")
         print("  5 - Inserir, 6 - Listar, 7 - Atualizar, 8 - Excluir")
-        print("\nCadastro de Produtos")
+        print("Cadastro de Produtos")
         print("  9 - Inserir, 10 - Listar, 11 - Atualizar, 12 - Excluir, 13 - Reajustar")
-        print("\nMenu do Visitante")
-        print("  14 - Abrir conta, 15 - Entrar no Sistema")
-        print("\n99-Fim")
-        return int(input("Informe uma opção: "))
-    @staticmethod
-    def main():
+        print("0 - Sair, 99 - Fim")
+        op = int(input("\nInforme uma opção: "))
+        if op == 0: UI.sair_do_sistema()
+
+        if op == 1: UI.cliente_inserir()
+        if op == 2: UI.cliente_listar()
+        if op == 3: UI.cliente_atualizar()
+        if op == 4: UI.cliente_excluir()
+
+        if op == 5: UI.categoria_inserir()
+        if op == 6: UI.categoria_listar()
+        if op == 7: UI.categoria_atualizar()
+        if op == 8: UI.categoria_excluir()
+
+        if op == 9:  UI.produto_inserir()
+        if op == 10: UI.produto_listar()
+        if op == 11: UI.produto_atualizar()
+        if op == 12: UI.produto_excluir()
+        if op == 13: UI.produto_reajustar()
+        return op
+
+    def menu_cliente():
+        print("1 - Listar Produtos, 2 - Adicionar Produto no Carrinho, 3 - Fechar Pedido, 4 - Ver Meus Pedidos")
+        print("0 - Sair, 99 - Fim")
+        op = int(input("\nInforme uma opção: "))
+        if op == 0: UI.sair_do_sistema()
+
+        if op == 1: UI.cliente_listar_produto()
+        if op == 2: UI.cliente_adicionar_produto()
+        if op == 3: UI.cliente_fechar_pedido()
+        if op == 4: UI.cliente_meus_pedidos()
+        return op
+
+    @classmethod
+    def main(cls):
         View.cliente_admin()
         op = 0
         while op != 99:
-            op = UI.menu()
-            if op == 1: UI.cliente_inserir()
-            if op == 2: UI.cliente_listar()
-            if op == 3: UI.cliente_atualizar()
-            if op == 4: UI.cliente_excluir()
-
-            if op == 5: UI.categoria_inserir()
-            if op == 6: UI.categoria_listar()
-            if op == 7: UI.categoria_atualizar()
-            if op == 8: UI.categoria_excluir()
-
-            if op == 9:  UI.produto_inserir()
-            if op == 10: UI.produto_listar()
-            if op == 11: UI.produto_atualizar()
-            if op == 12: UI.produto_excluir()
-            if op == 13: UI.produto_reajustar()
-
-            if op == 14: UI.visitante_abrir_conta()
-            if op == 15: UI.visitante_entrar_no_sistema()
+            if cls.cliente_id == 0:
+                # usuário não está logado
+                op = UI.menu_visitante()                 
+            else:
+                # usuário está logado, verifica se é o admin
+                admin = cls.cliente_nome == "admin"
+                # mensagen de bem-vindo
+                print("Bem-vindo(a), " + cls.cliente_nome)
+                # menu do usuário
+                if admin: op = UI.menu_admin()
+                else: op = UI.menu_cliente()
 
     @classmethod 
     def visitante_abrir_conta(cls):
         cls.cliente_inserir()
+
     @classmethod    
     def visitante_entrar_no_sistema(cls):
         email = input("Informe o email: ")
@@ -54,8 +85,12 @@ class UI:
         else:
             cls.cliente_id = obj["id"]
             cls.cliente_nome = obj["nome"]
-            print("Ben-vindo(a),", cls.cliente_nome)                            
         
+    @classmethod
+    def sair_do_sistema(cls):
+            cls.cliente_id = 0
+            cls.cliente_nome = ""
+
     @classmethod 
     def cliente_inserir(cls):
         # Lê os dados de um cliente
@@ -166,5 +201,21 @@ class UI:
     def produto_reajustar(cls):
         reajuste = float(input("Informe o percentual de reajuste em %: "))
         View.produto_reajustar(reajuste/100)
+
+    @classmethod
+    def cliente_listar_produto(cls):
+        print("\nListar Produtos\n")
+        
+    @classmethod
+    def cliente_adicionar_produto(cls):
+        print("\nAdicionar Produtos no Carrinho\n")
+
+    @classmethod
+    def cliente_fechar_pedido(cls):
+        print("\nFechar Pedido\n")
+
+    @classmethod
+    def cliente_meus_pedidos(cls):
+        print("\nMeus Pedidos\n")
 
 UI.main()            

@@ -16,7 +16,7 @@ class IndexUI:
         if op == "Cadastro de Clientes": ManterClienteUI.main()
 
     def menu_cliente():
-        op = st.sidebar.selectbox("Menu", ["Listar Produtos", "Inserir Produto no Carrinho", "Comprar Carrinho", "Ver Meus Pedidos"])
+        op = st.sidebar.selectbox("Menu", ["Listar Produtos", "Adicionar Produto no Carrinho", "Fechar Pedido", "Ver Meus Pedidos"])
 
     def sair_do_sistema():
         if st.sidebar.button("Sair"):
