@@ -6,6 +6,8 @@ class Produto:
         self.preco = preco
         self.estoque = estoque
         self.id_categoria = id_categoria
+        if preco < 0: raise ValueError("Preço não pode ser negativo")
+        if estoque < 0: raise ValueError("Estoque não pode ser negativo")
     def __str__(self):
         return f"{self.id} - {self.descricao} - {self.estoque} - R${self.preco:.2f}"
 

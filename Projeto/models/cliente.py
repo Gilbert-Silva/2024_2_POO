@@ -6,6 +6,7 @@ class Cliente:
         self.email = email
         self.fone = fone
         self.senha = senha
+        if nome == "": raise ValueError("Cliente deve ter um nome")
     def __str__(self):
         return f"{self.id} - {self.nome} - {self.email} - {self.fone}"
 
