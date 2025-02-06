@@ -57,13 +57,13 @@ public class UI
         Cliente cliente = new Cliente(0, nome, email, fone);
         
         // Chama a operação de inserir para adicionar o cliente na lista
-        Clientes.inserir(cliente);
+        (new Clientes()).inserir(cliente);
     }
 
     // Método para listar todos os clientes cadastrados
     public static void ListarClientes()
     {
-        var clientes = Clientes.listar();
+        var clientes = (new Clientes()).listar();
         
         if (clientes.Count == 0)
         {
@@ -99,7 +99,7 @@ public class UI
         Cliente cliente = new Cliente(id, nome, email, fone);
         
         // Chama a operação de atualizar
-        Clientes.atualizar(cliente);
+        (new Clientes()).atualizar(cliente);
     }
 
     // Método para excluir um cliente
@@ -114,6 +114,6 @@ public class UI
         Cliente cliente = new Cliente(id, "", "", "");
         
         // Chama a operação de excluir
-        Clientes.excluir(cliente);
+        (new Clientes()).excluir(cliente);
     }
 }
