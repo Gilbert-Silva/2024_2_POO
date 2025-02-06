@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.Scanner;
 
-public class Ui {
+public class UiV1 {
     static Scanner scanner = new Scanner(System.in); 
 
     // Método que exibe o menu e retorna a opção escolhida
@@ -59,16 +59,14 @@ public class Ui {
         Cliente cliente = new Cliente(0, nome, email, fone);
 
         // Chama a operação de inserir para adicionar o cliente na lista
-        Clientes crud = new Clientes();
-        crud.inserir(cliente);
+        Clientes.inserir(cliente);
 
         //scanner.close();
     }
 
     // Método para listar todos os clientes cadastrados
     public static void listarClientes() {
-        Clientes crud = new Clientes();
-        List<Cliente> clientes = crud.listar();
+        List<Cliente> clientes = Clientes.listar();
 
         if (clientes.isEmpty()) {
             System.out.println("Nenhum cliente cadastrado.");
@@ -102,8 +100,7 @@ public class Ui {
         Cliente cliente = new Cliente(id, nome, email, fone);
 
         // Chama a operação de atualizar
-        Clientes crud = new Clientes();
-        crud.atualizar(cliente);
+        Clientes.atualizar(cliente);
 
         //scanner.close();
     }
@@ -121,8 +118,7 @@ public class Ui {
         Cliente cliente = new Cliente(id, "", "", "");
 
         // Chama a operação de excluir
-        Clientes crud = new Clientes();
-        crud.excluir(cliente);
+        Clientes.excluir(cliente);
 
         //scanner.close();
     }

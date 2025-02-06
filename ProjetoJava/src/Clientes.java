@@ -6,62 +6,15 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Clientes {
-    private static List<Cliente> objetos = new ArrayList<Cliente>();
-
-    // Inserir cliente
-    public static void inserir(Cliente obj) {
-        abrir();  // Abre a lista do arquivo
-        // Calcula o id do cliente
-        int id = 0;
-        for (Cliente x : objetos) {
-            if (x.getId() > id) id = x.getId();
-        }
-        obj.setId(id + 1);  // Define o novo id
-        objetos.add(obj);    // Adiciona o cliente à lista
-        salvar();            // Salva a lista no arquivo
+public class Clientes extends Crud<Cliente> {
+    public Clientes() {
+        super("clientes3.json");
     }
 
-    // Listar todos os clientes
-    public static List<Cliente> listar() {
-        abrir();  // Abre a lista do arquivo
-        return objetos;  // Retorna a lista para a UI
-    }
-
-    // Listar cliente por id
-    public static Cliente listar_id(int id) {
-        abrir();  // Abre a lista do arquivo
-        for (Cliente x : objetos) {
-            if (x.getId() == id) return x;
-        }
-        return null;  // Retorna null se o cliente não for encontrado
-    }
-
-    // Atualizar um cliente
-    public static void atualizar(Cliente obj) {
-        Cliente x = listar_id(obj.getId());
-        if (x != null) {
-            x.setNome(obj.getNome());
-            x.setEmail(obj.getEmail());
-            x.setFone(obj.getFone());
-            salvar();  // Salva a lista atualizada
-        }
-    }
-
-    // Excluir um cliente
-    public static void excluir(Cliente obj) {
-        Cliente x = listar_id(obj.getId());
-        if (x != null) {
-            objetos.remove(x);  // Remove o cliente da lista
-            salvar();            // Salva a lista atualizada
-        }
-    }
-
-    // Abrir a lista de clientes a partir do arquivo
-    public static void abrir() {
+    public void abrir() {
         objetos.clear();  // Limpa a lista antes de carregar
         try {
-            FileReader reader = new FileReader("clientes3.json");
+            FileReader reader = new FileReader(arquivo);
             Type listType = new TypeToken<List<Cliente>>(){}.getType();
             objetos = new Gson().fromJson(reader, listType);
             reader.close();
@@ -72,15 +25,4 @@ public class Clientes {
         }
     }
 
-    // Salvar a lista de clientes no arquivo
-    public static void salvar() {
-        try {
-            FileWriter writer = new FileWriter("clientes3.json");
-            Gson gson = new Gson();
-            gson.toJson(objetos, writer);  // Converte a lista para JSON e escreve no arquivo
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }

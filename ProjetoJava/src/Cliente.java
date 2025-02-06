@@ -1,4 +1,4 @@
-public class Cliente {
+public class Cliente implements Modelo {
     private int id;
     private String nome;
     private String email;
